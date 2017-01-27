@@ -1,0 +1,11 @@
+<% @posts.each do |x| %>
+<div class="white">
+<%= image_tag x.image.url(:medium) %>
+<p>Description: <%= x.description %>  </p>
+<p>Added: <%= time_ago_in_words x.created_at%> ago</p>
+<% if user_signed_in? %>
+	<%= link_to 'Delete', post_path(x), method: :delete %>
+<% end %>
+
+</div>
+	<% end %>
